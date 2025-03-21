@@ -1,0 +1,109 @@
+/* General Body Styling */
+body {
+    background-color: #111; /* Dark background */
+    color: #00ff00; /* Neon green text */
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+/* Centering Container Content */
+.container {
+    text-align: center;
+}
+
+/* Title Styling */
+.title {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff00; /* Green glow */
+    animation: pulse 2s infinite; /* Glow pulse animation */
+}
+
+@keyframes pulse {
+    0% {
+        text-shadow: 0 0 10px #00ff00;
+    }
+    50% {
+        text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+    }
+    100% {
+        text-shadow: 0 0 10px #00ff00;
+    }
+}
+
+/* Status Styling */
+.status {
+    font-size: 1.5em;
+    color: #ff00ff; /* Neon magenta */
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+}
+
+/* Message Styling */
+.message {
+    font-size: 1.2em;
+    color: #00ffff; /* Neon cyan */
+    margin-bottom: 30px;
+}
+
+/* Glitch Effect */
+.glitch-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.glitch {
+    font-size: 2em;
+    position: relative;
+    animation: glitch 2s infinite linear;
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-3px, 3px);
+    }
+    40% {
+        transform: translate(3px, -3px);
+    }
+    60% {
+        transform: translate(-2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+}
+
+.glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red; /* Red glitch layer */
+    animation: glitch 0.1s infinite alternate;
+}
+
+.glitch::after {
+    left: -2px;
+    text-shadow: 2px 0 blue; /* Blue glitch layer */
+    animation: glitch 0.1s infinite alternate-reverse;
+}
