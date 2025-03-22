@@ -1,15 +1,12 @@
-/* ... (your existing CSS) ... */
+:root {
+    --neon-orange: #ff6600;
+    --neon-cyan: #00ffff;
+}
 
-/* Scanlines */
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1) 1px, transparent 1px, transparent 2px);
-    pointer-events: none;
+.products-container {
+    max-width: 1200px; /* Adjust as needed */
+    margin: 0 auto;
+    padding: 10px;
 }
 
 /* Products Section */
@@ -19,8 +16,8 @@ body::before {
 }
 
 .products h2 {
-    color: #ff6600; /* Orange neon */
-    text-shadow: 0 0 10px #ff6600, 0 0 20px #ff6600;
+    color: var(--neon-orange);
+    text-shadow: 0 0 6px var(--neon-orange), 0 0 12px var(--neon-orange);
     font-size: 2em;
     margin-bottom: 20px;
 }
@@ -36,15 +33,20 @@ body::before {
 
 .products a {
     text-decoration: none;
-    color: #00ffff; /* Cyan neon */
-    border: 1px solid #00ffff;
+    color: var(--neon-cyan);
+    border: 1px solid var(--neon-cyan);
     padding: 8px 15px;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
 }
 
 .products a:hover {
-    background-color: #00ffff;
+    background-color: rgba(0, 255, 255, 0.7); /* Slight transparency */
     color: #141414;
-    box-shadow: 0 0 10px #00ffff;
+    box-shadow: 0 0 6px rgba(0, 255, 255, 0.7);
+}
+
+.products a:focus {
+    outline: 2px dashed var(--neon-cyan); /* Focus style */
+    box-shadow: 0 0 15px var(--neon-cyan);
 }
